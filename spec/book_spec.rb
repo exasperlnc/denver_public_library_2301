@@ -22,4 +22,9 @@ RSpec.describe Book do
     expect(@book.publication_date).to eq("July 11, 1960")
   end
 
+  it 'is not checked out' do
+    expect(@book.checked_out).to eq(false)
+    expect(@book.checked_duration).to eq(0)
+  end
+
 end
