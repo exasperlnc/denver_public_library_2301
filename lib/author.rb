@@ -16,6 +16,7 @@ class Author
       :publication_date => publication_date
     )
     @books << new_book
+    return new_book
   end
 end
 
