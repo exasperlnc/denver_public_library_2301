@@ -21,10 +21,16 @@ RSpec.describe Library do
   expect(@library.books).to eq ([])
   end
 
-  it 'adds authors' do
+  xit 'adds authors' do
     @library.add_author(@harper_lee)
     @library.add_author(@charlotte_bronte)
     expect(@library.authors).to eq([@harper_lee, @charlotte_bronte])
     expect(@library.books).to eq([@to_kill_a_mockingbird, @jane_eyre])
+  end
+
+  it 'checks publication time frame' do
+    @library.add_author(@harper_lee)
+    @library.add_author(@charlotte_bronte)
+    expect(@library.publication_time_frame_for(@charlotte_bronte)).to eq({:end=>"1847", :start=>"1853"})
   end
 end

@@ -17,9 +17,15 @@ class Library
   end
 
   def publication_time_frame_for(author)
-    #takes author as argument
-    #returns hash with two key value pairs
-    #:start, which is the publication year of the first book
-    #:end, which points to publication year of last book
+    date_array = []
+    author.books.each do |book|
+      year = book.publication_date.split[-1].to_i
+      date_array << year
+    end
+    auth_hash = {
+      :start => date_array.max.to_s,
+      :end => date_array.min.to_s
+    }
+    return auth_hash
   end
 end
