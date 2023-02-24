@@ -1,15 +1,19 @@
 require './lib/author'
 class Library
+  attr_reader :name, :authors, :books
   def initialize(library_att)
-    library_att
-    library_att
-    library_att
+    @name = library_att[:name]
+    @authors = library_att[:authors]
+    @authors = []
+    @books = library_att[:books]
+    @books = []
     
   end
   
-  def add_author
-    #adds author to list of authors
-      #adds authors books to list of books
+  def add_author(author)
+    @authors << author
+    @books << author.books
+    @authors
   end
 
   def publication_time_frame_for(author)
