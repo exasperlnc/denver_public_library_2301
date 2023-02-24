@@ -20,7 +20,6 @@ RSpec.describe Book do
 
   it 'writes book' do
     jane_eyre = @charlotte_bronte.write("Jane Eyre", "October 16, 1847")
-    require 'pry'; binding.pry
     expect(jane_eyre).to be_a Book
     expect(jane_eyre.title).to eq("Jane Eyre")
     villette = @charlotte_bronte.write("Villette", "1853")
