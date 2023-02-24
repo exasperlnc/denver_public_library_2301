@@ -1,12 +1,12 @@
 require './lib/author'
 class Library
-  attr_reader :name, :authors, :books
+  attr_reader :name, :authors, :books, :checked_books
   def initialize(library_att)
     @name = library_att[:name]
-    @authors = library_att[:authors]
-    @authors = []
     @books = library_att[:books]
+    @authors = []
     @books = []
+    @checked_books = []
     
   end
   
@@ -27,5 +27,14 @@ class Library
       :end => date_array.min.to_s
     }
     return auth_hash
+  end
+
+  def check_out(book_title, weeks)
+      @books.each do |book|
+        if book.title.include?(book_title)
+           book.check_out(weeks)
+           @checked_books << book
+        end
+      end
   end
 end
